@@ -191,7 +191,7 @@ h2, h3, h1, h4 {
 .hero {
     height: 100vh;
     /* Reemplazar con la ruta de tu imagen de fondo */
-    background: url("Instituto-Lumen-Veritatis/images/school-institucional.png") no-repeat center center/cover;
+    background: url("school-institucional.png") no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -960,6 +960,7 @@ h2, h3, h1, h4 {
     }
 
 }
+
 
 
 
