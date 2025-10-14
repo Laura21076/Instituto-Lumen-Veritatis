@@ -135,7 +135,7 @@ h2, h3, h1, h4 {
     align-items: center;
     justify-content: space-between;
     font-family: "Cal Sans", sans-serif;
-    font-style: normal;       
+    font-style: normal;        
 }
 
 .logo {
@@ -179,7 +179,7 @@ h2, h3, h1, h4 {
 }
 
 .mobile-menu-button {
-    display: none;
+    display: none; /* Ocultar por defecto en desktop */
     background: none;
     border: none;
     color: white;
@@ -354,7 +354,7 @@ h2, h3, h1, h4 {
 .perfil-card ul {
     list-style: none;
     padding-left: 0;
-    font-weight: 500; 
+    font-weight: 500;  
 }
 
 .perfil-card li {
@@ -367,6 +367,37 @@ h2, h3, h1, h4 {
 .perfil-card strong {
     font-weight: 700; /* Negrita más marcada */
 }
+
+/* Uniformes (Nuevo) */
+.uniformes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.uniforme-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid var(--azul-institucional);
+}
+
+.uniforme-card img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.uniforme-card h4 {
+    color: var(--dorado-institucional);
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
 
 /* Materias */
 .materias-grid {
@@ -414,6 +445,7 @@ h2, h3, h1, h4 {
 
 /* Infraestructura */
 .infra-grid {
+    /* CORRECCIÓN: Unifica el estilo de la tarjeta de infraestructura con el resto */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
@@ -421,23 +453,30 @@ h2, h3, h1, h4 {
 }
 
 .infra-item {
+    /* CORRECCIÓN: Eliminar la clase col-lg-4 y aplicar el estilo de tarjeta general */
     padding: 30px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-top: 3px solid var(--dorado-institucional);
+    text-align: center; /* Centrar contenido dentro de la tarjeta */
 }
 
-.infra-item i {
-    font-size: 2.5rem;
-    color: var(--azul-institucional);
+/* CORRECCIÓN: Estilos para el elemento de Edificios Académicos que estaba mal anidado */
+.infra-item .card-img-top {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
     margin-bottom: 15px;
 }
 
 .infra-item h4 {
     font-size: 1.5rem;
     margin-top: 0;
+    color: var(--azul-institucional);
 }
+
 
 /* Organigrama y Equipo */
 .organigrama-container {
@@ -487,7 +526,7 @@ h2, h3, h1, h4 {
 .equipo-card ul {
     list-style: none;
     padding-left: 0;
-    font-weight: 500; 
+    font-weight: 500;  
 }
 
 .equipo-card li {
@@ -521,7 +560,7 @@ h2, h3, h1, h4 {
 
 .objetivo-card ul {
     padding-left: 20px;
-    font-weight: 500; 
+    font-weight: 500;  
 }
 
 .estrategias-grid {
@@ -631,7 +670,7 @@ h2, h3, h1, h4 {
 }
 
 /* PASO 1: La información de contacto debe ocupar la primera columna */
-.contact-info { 
+.contact-info {  
     grid-column: 1 / 2; /* Asegura que tome la primera mitad */
 }
 
@@ -668,13 +707,14 @@ h2, h3, h1, h4 {
     color: var(--azul-institucional);
 }
 
-.contact-form-container input {
+.contact-form-container input, .contact-form-container textarea { /* Añadido textarea */
     padding: 12px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
     font-family: var(--fuente-cuerpo);
+    resize: vertical; /* Permite redimensionar el textarea verticalmente */
 }
 
 /* NUEVO: Indicador de que la imagen es clickeable */
@@ -687,76 +727,96 @@ h2, h3, h1, h4 {
 }
 
 /* ============================================== */
-/* Ajustes de Responsividad (Móvil)      */
+/* Ajustes de Responsividad (Móvil)          */
 /* ============================================== */
 
-@media (max-width: 768px) {
-    /* Ajuste en el Banner Principal para Móviles */
-    .hero-section {
-        height: 80vh; 
-        background-attachment: scroll; 
-    }
-    .hero-section h1 {
-        font-size: 2rem; 
-    }
-    .hero-section p.lead {
-        font-size: 1rem !important; 
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2.5rem;
     }
 
-    /* Ajuste de Espacios y Textos Generales */
-    h2.display-5, h3.playfair-font {
-        font-size: 1.8rem !important; 
-    }
-    .fs-5 {
-        font-size: 1rem !important;
-    }
-    .lead {
-        font-size: 1.1rem !important;
-    }
-
-    /* Ajuste de Cards */
-    .card-body {
-        padding: 1rem;
+    .nav-links {
+        /* Ocultar menú en tabletas y móviles */
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--azul-institucional);
+        position: absolute;
+        top: 70px; /* Altura del header */
+        left: 0;
+        padding: 10px 0;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
     }
 
-    /* Secciones de Identidad y Contacto */
-    .badge-list .badge {
-        display: block; 
-        margin-bottom: 0.5rem;
-    }
-    
-    /* Para móviles, el mapa se apila sobre el formulario */
-    .embed-responsive {
-        margin-bottom: 1.5rem;
+    .nav-links.active {
+        display: flex;
     }
 
+    .nav-link {
+        padding: 10px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu-button {
+        display: block; /* Mostrar botón de menú en móviles */
+    }
+
+    /* Hero Section */
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    /* Esencia */
+    .esencia-card {
+        width: 100%; /* Las tarjetas ocupan todo el ancho */
+        min-width: unset;
+    }
+
+    /* Perfiles, Objetivos, Carrera Nueva, Contacto */
+    .perfiles-grid,
+    .objetivos-grid,
+    .carrera-info-grid,
+    .cronograma-alianzas-grid,
+    .contact-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    /* Contacto: Asegurar que se apilen correctamente */
+    .contact-info {  
+        grid-column: 1 / 2;
+    }
+    .contact-form-container {
+        grid-column: 1 / 2;
+    }
 }
 
-/* ============================================== */
-/* REGLAS PARA EL LOGO DEL HEADER (hero section)  */
-/* ============================================== */
+@media (max-width: 576px) {
+    body {
+        font-size: 1rem;
+    }
 
-.logo-grande {
-    /* Un tamaño grande por defecto (Desktop) */
-    max-width: 250px; 
-    height: auto;
-}
+    .section {
+        padding: 50px 15px;
+    }
 
-@media (max-width: 768px) {
-    .logo-grande {
-        /* Un poco más pequeño en móviles, pero aún prominente */
-        max-width: 180px; 
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .subsection-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
     }
 }
-
-}
-
-
-
-
-
-
-
-
-
-
