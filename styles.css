@@ -727,6 +727,111 @@ h2, h3, h1, h4 {
 }
 
 /* ============================================== */
+/* ESTILOS DEL FOOTER */
+/* ============================================== */
+
+.footer {
+    background-color: var(--azul-institucional);
+    color: var(--gris-claro);
+    padding: 40px 20px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* Para responsividad */
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+    gap: 30px;
+}
+
+.footer-section {
+    flex-basis: 30%; /* Distribución en 3 columnas en desktop */
+    min-width: 250px; /* Ancho mínimo para evitar colapsos */
+}
+
+.footer-section h4 {
+    color: var(--dorado-institucional);
+    font-family: var(--fuente-titulo);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.5); /* Dorado semi-transparente */
+    padding-bottom: 5px;
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    color: var(--gris-claro);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--dorado-institucional);
+    text-decoration: underline;
+}
+
+/* Iconos de redes sociales */
+.social-icons a {
+    color: var(--gris-claro);
+    font-size: 1.5rem;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--dorado-institucional);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Responsividad para Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Apilar secciones */
+        align-items: center;
+    }
+
+    .footer-section {
+        flex-basis: 100%;
+        min-width: unset;
+        text-align: center; /* Centrar contenido de las secciones */
+        margin-bottom: 20px;
+    }
+
+    .footer-section h4 {
+        margin-bottom: 10px;
+    }
+}
+
+/* ============================================== */
 /* Ajustes de Responsividad (Móvil)          */
 /* ============================================== */
 
@@ -820,3 +925,4 @@ h2, h3, h1, h4 {
         font-size: 1rem;
     }
 }
+
