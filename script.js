@@ -23,9 +23,17 @@ mobileMenuButton.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-// Cerrar menú móvil al hacer clic en un enlace
-document.querySelectorAll('#nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        var navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic en un enlace (solo en móviles)
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 992) {
+                document.getElementById('nav-links').classList.remove('active');
+            }
+        });
     });
 });
