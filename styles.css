@@ -787,6 +787,16 @@ h2, h3, h1, h4 {
     resize: vertical; /* Permite redimensionar el textarea verticalmente */
 }
 
+.hidden {
+    display: none !important;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.visible {
+    display: block; /* o flex, según necesites */
+    opacity: 1;
+}
+
 /* NUEVO: Indicador de que la imagen es clickeable */
 .cursor-pointer {
     cursor: pointer;
@@ -995,5 +1005,6 @@ h2, h3, h1, h4 {
         font-size: 1rem;
     }
 }
+
 
 
