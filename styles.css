@@ -444,8 +444,8 @@ h2, h3, h1, h4 {
 }
 
 /* Infraestructura */
+/* Ajuste el grid para que permita 3 o 4 columnas si el contenido lo permite */
 .infra-grid {
-    /* CORRECCIÓN: Unifica el estilo de la tarjeta de infraestructura con el resto */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
@@ -453,21 +453,35 @@ h2, h3, h1, h4 {
 }
 
 .infra-item {
-    /* CORRECCIÓN: Eliminar la clase col-lg-4 y aplicar el estilo de tarjeta general */
-    padding: 30px;
+    padding: 20px; /* Reducir padding */
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-top: 3px solid var(--dorado-institucional);
-    text-align: center; /* Centrar contenido dentro de la tarjeta */
+    text-align: center;
+    display: flex; /* Nuevo: Activar flexbox para contenido */
+    flex-direction: column; /* Nuevo: Apilar elementos */
+    transition: transform 0.3s ease;
 }
 
-/* CORRECCIÓN: Estilos para el elemento de Edificios Académicos que estaba mal anidado */
-.infra-item .card-img-top {
-    max-width: 100%;
-    height: 200px;
+.infra-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Estilo específico para la imagen en la tarjeta */
+.infra-item .infra-img {
+    width: 100%;
+    height: 150px; /* Altura fija para la imagen */
     object-fit: cover;
+    margin-bottom: 15px;
     border-radius: 5px;
+    cursor: pointer; /* Indica que es clickeable */
+    border: 1px solid #ddd;
+}
+
+.infra-item i {
+    font-size: 2.5rem;
+    color: var(--azul-institucional);
     margin-bottom: 15px;
 }
 
@@ -475,6 +489,62 @@ h2, h3, h1, h4 {
     font-size: 1.5rem;
     margin-top: 0;
     color: var(--azul-institucional);
+}
+
+/* ============================== */
+/* NUEVO: ESTILO DEL MODAL (Ventana de Ampliación) */
+/* ============================== */
+.modal {
+    display: none; /* Ocultar por defecto */
+    position: fixed;
+    z-index: 2000; /* Asegurar que esté por encima de todo */
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Negro semi-transparente */
+}
+
+.modal-content-img {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* Botón de cerrar (la X) */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsividad para el modal */
+@media only screen and (max-width: 700px){
+    .modal-content-img {
+        width: 100%;
+    }
 }
 
 
@@ -925,4 +995,5 @@ h2, h3, h1, h4 {
         font-size: 1rem;
     }
 }
+
 
