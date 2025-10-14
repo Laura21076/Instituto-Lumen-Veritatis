@@ -677,289 +677,80 @@ h2, h3, h1, h4 {
     font-family: var(--fuente-cuerpo);
 }
 
-/* --- Responsividad para el contacto --- */
+/* NUEVO: Indicador de que la imagen es clickeable */
+.cursor-pointer {
+    cursor: pointer;
+}
+.cursor-pointer:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 10px rgba(0, 51, 102, 0.5);
+}
 
-/* Ahora los apilaremos solo en pantallas más pequeñas (móviles) */
+/* ============================================== */
+/* Ajustes de Responsividad (Móvil)      */
+/* ============================================== */
+
 @media (max-width: 768px) {
-    /* Cuando la pantalla sea más pequeña de 768px, los elementos se apilan. */
-    .contact-grid {
-        grid-template-columns: 1fr; /* Una sola columna para móviles */
-        padding: 20px; /* Reducimos el padding en pantallas pequeñas */
-        margin: 20px auto;
+    /* Ajuste en el Banner Principal para Móviles */
+    .hero-section {
+        height: 80vh; 
+        background-attachment: scroll; 
     }
-    /* Aseguramos que los elementos no tengan asignación de columna forzada */
-    .contact-info,
-    .contact-form-container {
-        grid-column: auto; 
+    .hero-section h1 {
+        font-size: 2rem; 
     }
-}
-
-.form-success {
-    color: green;
-    font-weight: 600;
-    margin-top: 10px;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.form-success.visible {
-    opacity: 1;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Footer */
-.footer {
-    background-color: var(--azul-institucional);
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-  
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto 20px;
-    text-align: left;
-}
-
-.footer-grid h4 {
-    font-size: 1.5rem;
-    color: var(--dorado-institucional);
-    margin-bottom: 15px;
-    
-}
-
-.footer-grid p {
-    color: #a0a4b3;
-    font-size: 0.97rem;
-    font-family: "Afacad Flux", sans-serif;
-    font-weight: 400;
-    font-style: italic;
-
-}
-
-.footer-grid ul {
-    list-style: none;
-    padding: 0;
-             
-}
-
-.footer-grid a {
-    text-decoration: none;
-    color: #a0a4b3;
-    display: block;
-    margin-bottom: 8px;
-    transition: color 0.3s ease;
-    font-family: "Afacad Flux", sans-serif;
-}
-
-.footer-grid a:hover {
-    color: var(--dorado-institucional);
-}
-
-.footer-grid .fab {
-    font-size: 1.5rem;
-    margin-right: 15px;
-}
-
-.footer-grid .fab:hover {
-    color: white;
-}
-
-.footer > p {
-    margin-top: 20px;
-    font-size: 0.95rem;
-    color: #a0a4b3;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 15px;
-    
-}
-
-
-/* --- Estilos para Google Maps --- */
-
-.map-container {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-}
-
-.map-container h3 {
-    font-size: 1.5rem;
-    color: var(--azul-institucional);
-    margin-bottom: 15px;
-}
-
-.map-container iframe {
-    /* Asegura que el mapa ocupe todo el ancho del contenedor */
-    width: 100%;
-    /* Altura fija para dispositivos de escritorio */
-    height: 350px; 
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Ajuste de responsividad para que el mapa se vea bien en pantallas pequeñas */
-@media (max-width: 600px) {
-    .map-container iframe {
-        /* Reduce la altura en móviles para que no ocupe demasiado espacio */
-        height: 250px; 
-    }
-}
-
-
-/* --- Sección Uniformes --- */
-
-.uniformes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-    text-align: center;
-}
-
-.uniforme-card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-top: 5px solid var(--azul-institucional);
-    transition: transform 0.3s ease;
-}
-
-.uniforme-card:hover {
-    transform: translateY(-5px);
-}
-
-.uniforme-card img {
-    width: 100%;
-    height: 250px; /* Altura para las imágenes */
-    object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-}
-
-.uniforme-card h4 {
-    font-size: 1.6rem;
-    color: var(--dorado-institucional);
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.uniforme-card p {
-    font-size: 1rem;
-    color: #4a5568;
-}
-
-/* Responsividad (ajustes ya incluidos en el media query principal) */
-/* En dispositivos pequeños, el grid ya cambia automáticamente a una columna. */
-
-/* --- Responsividad --- */
-@media (max-width: 992px) {
-    .section {
-        padding: 60px 20px;
-    }
-    .section-title {
-        font-size: 2.5rem;
-    }
-    .hero-content h1 {
-        font-size: 3.5rem;
-    }
-    .hero-content p {
-        font-size: 1.2rem;
+    .hero-section p.lead {
+        font-size: 1rem !important; 
     }
 
-    /* Columnas a 1 o 2 */
-    .esencia-grid,
-    .perfiles-grid,
-    .materias-grid,
-    .infra-grid,
-    .equipo-grid,
-    .estrategias-grid,
-    .objetivos-grid,
-    .cronograma-alianzas-grid,
-    .contact-grid,
-    .carrera-info-grid,
-    .carrera-asignaturas ul {
-        grid-template-columns: 1fr;
-        gap: 25px;
+    /* Ajuste de Espacios y Textos Generales */
+    h2.display-5, h3.playfair-font {
+        font-size: 1.8rem !important; 
+    }
+    .fs-5 {
+        font-size: 1rem !important;
+    }
+    .lead {
+        font-size: 1.1rem !important;
     }
 
-    .esencia-card {
-        width: 100%;
-        min-width: unset;
+    /* Ajuste de Cards */
+    .card-body {
+        padding: 1rem;
+    }
+
+    /* Secciones de Identidad y Contacto */
+    .badge-list .badge {
+        display: block; 
+        margin-bottom: 0.5rem;
     }
     
-    .niveles-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 25px;
-    }
-    
-    .nivel-card {
-        width: 100%;
-        max-width: 450px;
+    /* Para móviles, el mapa se apila sobre el formulario */
+    .embed-responsive {
+        margin-bottom: 1.5rem;
     }
 
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        font-family:"DM Serif Text", serif;
-    }
-    
-    .footer-grid div {
-        margin-bottom: 20px;
-    }
-    .footer-grid a {
-        display: inline-block;
-        margin: 0 10px;
-    }
+}
+
+/* ============================================== */
+/* REGLAS PARA EL LOGO DEL HEADER (hero section)  */
+/* ============================================== */
+
+.logo-grande {
+    /* Un tamaño grande por defecto (Desktop) */
+    max-width: 250px; 
+    height: auto;
 }
 
 @media (max-width: 768px) {
-    /* Navegación móvil */
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: var(--azul-institucional);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    .logo-grande {
+        /* Un poco más pequeño en móviles, pero aún prominente */
+        max-width: 180px; 
     }
-
-    .nav-links.active {
-        display: flex;
-        padding-bottom: 10px;
-    }
-
-    .nav-link {
-        padding: 10px 20px;
-        text-align: left;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .mobile-menu-button {
-        display: block;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-content p {
-        font-size: 1rem;
-    }
+}
 
 }
+
 
 
 
